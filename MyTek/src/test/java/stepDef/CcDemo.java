@@ -48,20 +48,35 @@ public class CcDemo {
 		cc= new crationComptePage(driver);
 		
 		cc.enterPrenom(prenom);
-		
 		cc.enterNom(nom);
 		cc.enterEmail(Email);
 		cc.enterMDP(MDP);
 		cc.enterMDPC(Confirmation_MDP);
-		cc.verif(prenom, nom, Email, MDP, Confirmation_MDP);}
+
+		
+		
+	}
 	  
 	@And("je clique sur creer un compte")
-	public void je_clique_sur_creer_un_compte() {
-cc.cliquer_cc();
+	public void je_clique_sur_creer_un_compte() throws InterruptedException {
+		cc.cliquer_cc();
+
 	}
 
-	@Then("page d_acceuil ouverte")
-	public void page_d_acceuil_ouverte() {
+	@Then("^page d_acceuil ouverte avec (.*) and (.*) and (.*) and (.*) and (.*)$")
+	public void page_d_acceuil_ouverte(String prenom , String nom, String Email,String MDP,String Confirmation_MDP )throws InterruptedException {
+		
+
+	cc.verif_cc(prenom, nom, Email, MDP, Confirmation_MDP);
 	
-cc.verif_cc();}
+
+		
+
+
+	
+	
+	}
+
+	
+	
 }

@@ -11,7 +11,7 @@ public class crationComptePage {
 	}
 	
 //entrer prenom
-	public void enterPrenom(String prenom) {driver.findElement(By.id("firstname")).sendKeys(prenom);}
+	public String enterPrenom(String prenom) {driver.findElement(By.id("firstname")).sendKeys(prenom);return (prenom);}
 //entrer nom  
 	public void enterNom(String nom) {driver.findElement(By.id("lastname")).sendKeys(nom);}
 //entrer Email
@@ -21,50 +21,65 @@ public class crationComptePage {
 //confirmation de mot de passe  
 	public void enterMDPC(String Confirmation_MDP) {driver.findElement(By.id("password-confirmation")).sendKeys(Confirmation_MDP);}
 ///validation methode
-	public String recupererText() {
-	
-			driver.findElement(By.id("firstname")).getText();
-			
-		return null;
-	}	
-	public void verif(String prenom,String nom,String Email,String MDP,String Confirmation_MDP ) {
-		
-		 String aero="@";String com=".com";String tn=".tn";String fr=".fr";String gmail="gmail";String talan="talan";String yahoo ="yahoo";
-		 
-		 
-		 if( (prenom.isEmpty()==true)||(prenom.matches(".*[0-9].*")==true)) {driver.quit();System.out.print("PRENOM NON VALIDE ");
-		 return;}
-	
-		 else if( (nom.isEmpty()==true)||(nom.matches(".*[0-9].*")==true)) {driver.quit();System.out.print("NOM NON VALIDE ");
-			 
-		 return;}
-		
-		 else if( (Email.isEmpty()==true)||(Email.contains(aero))==false||(Email.contains(com))==false||(Email.contains(tn))==false||(Email.contains(fr))==false
-				 ||(Email.contains(gmail))==false||(Email.contains(talan))==false||(Email.contains(yahoo))==false) {driver.quit();
-			 System.out.print("EMAIL NON VALIDE ");
-		 return;}
-		 else if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { System.out.print("MDP NON VALIDE ");
-		 System.out.print("le mot de passe est de longuer"+MDP.length());
-			return; 
-			}
-		 else if ((Confirmation_MDP.isEmpty()==true)||(Confirmation_MDP!=MDP)) { System.out.print("MDP NON VALIDE ");
-		 System.out.print("le mot de passe est de longuer"+MDP.length());
-			return; 
-			}
-		 
-	}
+
 	public void cliquer_cc() {
 	driver.findElement(By.xpath("//button[contains(@class,'action submit primary')]")).click();
 }
 	
-	public void verif_cc(){
+	public void verif_cc(String prenom , String nom, String Email,String MDP,String Confirmation_MDP){
 		
 		String URL="https://www.mytek.tn/customer/account/";
 		String VerifyCC= driver.getCurrentUrl();
-		if(VerifyCC.contentEquals(URL)==true) {System.out.print("compte cree");}
-		else  {System.out.print("compte non cree ");/*driver.quit();*/}
+		
+				if(VerifyCC.contentEquals(URL)==true) {
+	
+					if  (((prenom.isEmpty()==true)||(prenom.matches(".*[0-9].*")==true))) {System.out.print("////////////////COMPTE CREE AVEC preNOM NON VALIDE///////////////// "); driver.findElement(null);}
+				
+				
+					 if  (((nom.isEmpty()==true)||(nom.matches(".*[0-9].*")==true))) {System.out.print("////////////////COMPTE CREE AVEC NOM NON VALIDE///////////////// "); driver.findElement(null);}
+				
+				
+					 String aero="@";String g1="gmail.com";String g2="gmail.tn";String g3="gmail.fr";String t1="talan.com";String t2="talan.tn";String t3 ="talan.fr";
+					 
+					 
+                          if ( (Email.isEmpty()==true)||(Email.contains(aero))==false) {
+						 System.out.print("EMAIL NON VALIDE "); driver.findElement(null);}
+						 
+					 if((Email.contains(g1)==false)&&(Email.contains(g2)==false)&&(Email.contains(g3)==false)&&(Email.contains(t1)==false)&&(Email.contains(t2)==false)&&(Email.contains(t3)==false)) {
+						 System.out.print("EMAIL NOT LOGIC BLA BLA BLA!!!!!!!!!!!!!!!!!! "); driver.findElement(null);}
+                if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { System.out.print("//////////////////////////MDP NON VALIDE///////////////// ");driver.findElement(null);}
+                if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) { 
+                    System.out.print("////////////////////MDP non conforme//////////////////");driver.findElement(null);}
+				}
+				//else {System.out.print("////////////////COMPTE CREE AVEC SUCCES/////////////////////");}
+				if(VerifyCC.contentEquals(URL)==true)	{System.out.print("////////////COMPTE CREE //////////// ");}
+				
+	/////////////////////////////////////////NON CREATION D UN COMPTE AVEC DES DONNEES INVALIDE//////////////////////////////////////////////////////////////////////////////////////	
+		
+		 if(VerifyCC.contentEquals(URL)==false)  {	if  (((prenom.isEmpty()==true)||(prenom.matches(".*[0-9].*")==true))) {}
+			
+			
+		 if  (((nom.isEmpty()==true)||(nom.matches(".*[0-9].*")==true))) { }
+	
+	
+		 String aero="@";String g1="gmail.com";String g2="gmail.tn";String g3="gmail.fr";String t1="talan.com";String t2="talan.tn";String t3 ="talan.fr";
+		 
+		 
+              if ( (Email.isEmpty()==true)||(Email.contains(aero))==false) {
+			 }
+			 
+		 if((Email.contains(g1)==false)&&(Email.contains(g2)==false)&&(Email.contains(g3)==false)&&(Email.contains(t1)==false)&&(Email.contains(t2)==false)&&(Email.contains(t3)==false)) {
+			 }
+    if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { }
+    if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) { 
+        }
+    System.out.print("////////////////LA NON CREATION EST COMPTE EST CORRECTE/////////////////////");
+	}
+		 
 	}
 	
+
+ }
 	
 	
 	
@@ -93,5 +108,4 @@ public class crationComptePage {
 	
 	
 	
-	
-}
+
