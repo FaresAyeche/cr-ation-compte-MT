@@ -11,7 +11,7 @@ public class crationComptePage {
 	}
 	
 //entrer prenom
-	public String enterPrenom(String prenom) {driver.findElement(By.id("firstname")).sendKeys(prenom);return (prenom);}
+	public void enterPrenom(String prenom) {driver.findElement(By.id("firstname")).sendKeys(prenom); }
 //entrer nom  
 	public void enterNom(String nom) {driver.findElement(By.id("lastname")).sendKeys(nom);}
 //entrer Email
@@ -48,11 +48,11 @@ public class crationComptePage {
 					 if((Email.contains(g1)==false)&&(Email.contains(g2)==false)&&(Email.contains(g3)==false)&&(Email.contains(t1)==false)&&(Email.contains(t2)==false)&&(Email.contains(t3)==false)) {
 						 System.out.print("EMAIL NOT LOGIC BLA BLA BLA!!!!!!!!!!!!!!!!!! "); driver.findElement(null);}
                 if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { System.out.print("//////////////////////////MDP NON VALIDE///////////////// ");driver.findElement(null);}
-                if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) { 
-                    System.out.print("////////////////////MDP non conforme//////////////////");driver.findElement(null);}
+             //   if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) { System.out.print("////////////////////MDP non conforme//////////////////");driver.findElement(null);}
+                if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP.contentEquals(MDP)==false) { System.out.print("////////////////////MDP non conforme//////////////////");driver.findElement(null);}
 				}
-				//else {System.out.print("////////////////COMPTE CREE AVEC SUCCES/////////////////////");}
-				if(VerifyCC.contentEquals(URL)==true)	{System.out.print("////////////COMPTE CREE //////////// ");}
+				if(VerifyCC.contentEquals(URL)==true) {System.out.print("////////////////COMPTE CREE AVEC SUCCES/////////////////////");}
+				//if(VerifyCC.contentEquals(URL)==true)	{System.out.print("////////////COMPTE CREE //////////// ");}
 				
 	/////////////////////////////////////////NON CREATION D UN COMPTE AVEC DES DONNEES INVALIDE//////////////////////////////////////////////////////////////////////////////////////	
 		
@@ -71,10 +71,10 @@ public class crationComptePage {
 		 if((Email.contains(g1)==false)&&(Email.contains(g2)==false)&&(Email.contains(g3)==false)&&(Email.contains(t1)==false)&&(Email.contains(t2)==false)&&(Email.contains(t3)==false)) {
 			 }
     if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { }
-    if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) { 
+    if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) {  System.out.print("////////////////LA NON CREATION EST COMPTE EST CORRECTE/////////////////////");}
         }
-    System.out.print("////////////////LA NON CREATION EST COMPTE EST CORRECTE/////////////////////");
-	}
+   
+	
 		 
 	}
 	

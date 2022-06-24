@@ -9,8 +9,8 @@ Feature: Cc.feature
     Then page d_acceuil ouverte avec <prenom> and <nom> and <Email> and <MDP> and <Confirmation_MDP>
 
     Examples: 
-      | prenom | nom | Email           | MDP   | Confirmation_MDP |
-      |        | Ben | cvR869/@gmail.com  | fares | fares            |
-      | ddd123 | Ben | cvF869/@gmail.com  | fares | fares            |
-      |    123 | Ben | cv8F69R/@gmail.com | fares | fares            |
-      |    AZER |AZER | cv8FR69/@gmail.com | fares | fares            |
+      | prenom  | nom  | Email          | MDP         | Confirmation_MDP |
+      |         | AZER | faresW@gma.com | faresfares2 | faresfares2      |
+      | AZER123 | AZER | faresW@gma.com | faresfares2 | faresfares2      |
+      |     123 | AZER | faresW@gma.com | faresfares2 | faresfares2      |
+      | AZER    | AZER | faresW@gma.com | faresfares2 | faresfares2      |
