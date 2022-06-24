@@ -9,8 +9,15 @@ Feature: Cc.feature
     Then page d_acceuil ouverte avec <prenom> and <nom> and <Email> and <MDP> and <Confirmation_MDP>
 
     Examples: 
-      | prenom  | nom  | Email          | MDP         | Confirmation_MDP |
-      |         | AZER | faresW@gma.com | faresfares2 | faresfares2      |
-      | AZER123 | AZER | faresW@gma.com | faresfares2 | faresfares2      |
-      |     123 | AZER | faresW@gma.com | faresfares2 | faresfares2      |
-      | AZER    | AZER | faresW@gma.com | faresfares2 | faresfares2      |
+      | prenom    | nom       | Email              | MDP         | Confirmation_MDP |
+      |           | ayeche    | farest1@gmail.com  | faresfares2 | faresfares2      |
+      | fares 123 | ayeche    | farest2@gmail.com  | faresfares2 | faresfares2      |
+      |       123 | ayeche    | farest3@gmail.com  | faresfares2 | faresfares2      |
+      | fares     |           | farest4@gmail.com  | faresfares2 | faresfares2      |
+      | fares     | ayeche123 | farest5@gmail.com  | faresfares2 | faresfares2      |
+      | fares     |       123 | farest6@gmail.com  | faresfares2 | faresfares2      |
+      | fares     | ayeche    |                    | faresfares2 | faresfares2      |
+      | fares     | ayeche    | farest7@gmail      | faresfares2 | faresfares2      |
+      | fares     | ayeche    | farest9@gmail.com  | faresfares2 | faresfares2      |
+      | fares     | ayeche    | farest10@gmail.com |             | faresfares2      |
+      | fares     | ayeche    | farest10@gmail.com | fares       | fares            |
