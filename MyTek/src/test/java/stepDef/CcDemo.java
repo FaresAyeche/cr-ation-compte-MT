@@ -40,6 +40,7 @@ public class CcDemo {
 	@And("Utilisateur dans la page de creation")
 	public void utilisateur_dans_la_page_de_creation() {
 		driver.navigate().to("https://www.mytek.tn/customer/account/create/");
+		
 	}
 	@When("^je_tape (.*) and (.*) and (.*) and (.*) and (.*)$")
 	
@@ -68,10 +69,10 @@ public class CcDemo {
 		
 
 	cc.verif_cc(prenom, nom, Email, MDP, Confirmation_MDP);
+	
 	///////////////////////////////////////////Connexion/////////////////////////////////////////////////// 
 
-		
-
+	
 
 	
 	

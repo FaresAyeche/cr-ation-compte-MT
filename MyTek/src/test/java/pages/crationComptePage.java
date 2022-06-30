@@ -50,6 +50,7 @@ public class crationComptePage {
                 if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { System.out.print("//////////////////////////MDP NON VALIDE///////////////// ");driver.findElement(null);}
              //   if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) { System.out.print("////////////////////MDP non conforme//////////////////");driver.findElement(null);}
                 if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP.contentEquals(MDP)==false) { System.out.print("////////////////////MDP non conforme//////////////////");driver.findElement(null);}
+                
 				}
 				if(VerifyCC.contentEquals(URL)==true) {System.out.print("////////////////COMPTE CREE AVEC SUCCES/////////////////////");}
 				//if(VerifyCC.contentEquals(URL)==true)	{System.out.print("////////////COMPTE CREE //////////// ");}
@@ -71,9 +72,13 @@ public class crationComptePage {
 		 if((Email.contains(g1)==false)&&(Email.contains(g2)==false)&&(Email.contains(g3)==false)&&(Email.contains(t1)==false)&&(Email.contains(t2)==false)&&(Email.contains(t3)==false)) {
 			 }
     if ((MDP.isEmpty()==true)||(MDP.length()<=8==true)) { }
+	String a =driver.findElement(By.xpath("//div[contains(@class,'message-error error message')]")).getText();
+	//System.out.print(a);
+	String b="Il existe déjà un compte avec cette adresse email. Si vous êtes sûr que c'est votre adresse email, cliquez ici pour obtenir votre mot de passe et accédez à votre compte.";
+	if(a.contentEquals(b)==true) {System.out.print("////////////////CAR Il existe déjà un compte/////////////////////");}
     if ((Confirmation_MDP.isEmpty()==true)||Confirmation_MDP!=MDP==true) {  System.out.print("////////////////LA NON CREATION EST COMPTE EST CORRECTE/////////////////////");}
         }
-   
+    
 	
 		 
 	}
